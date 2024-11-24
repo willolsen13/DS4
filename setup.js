@@ -1,5 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-const parts = {
+    async function checkFirstRun() {
+      const data = await new Promise((resolve) => {
+          chrome.storage.local.get(['isFirstRun'], (data) => {
+              resolve(data);
+          });
+      });
+      if (data.isFirstRun === true) {
+          // First run setup (if isFirstRun is not defined in storage)
+          isFirst = true;
+          // Mark the first run as completed
+          chrome.storage.local.set({ isFirstRun: false });
+      } else {
+          // Subsequent runs
+          isFirst = false;
+      }
+  
+      console.log(isFirst);  // Check the result
+      return isFirst
+
+  }
+  
+  checkFirstRun().then((isFirst) => {
+    console.log(isFirst)
+  const parts = {
     //<emotion>: happy, neutral, sad, mad, or tired\n
     //<animal>: <color> bunny, cat, dog, or bear\n
     //<top>: <color> tshirt, sweater, hoodie, suit, dress, or blank (if you do not want a top)\n
@@ -23,6 +46,12 @@ const parts = {
   
   const preview = document.getElementById('character-preview');
   const form = document.getElementById('password-form');
+  document.addEventListener('DOMContentLoaded', () => {
+    if (isFirst) {
+      document.getElementById("header").textContent = "Set Password";
+      document.getElementById("submit").textContent = "Set Password";
+    }
+  });
   
   function updateCharacterPreview() {
     console.log(parts); // Check the current state of the parts object
@@ -77,9 +106,21 @@ const parts = {
   // Handle form submission
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    chrome.storage.local.set({ password: parts }, () => {
-      alert('Password set successfully!');
-      window.close();
-    });
+    if (isFirst) {
+      chrome.storage.local.set({ 'password': parts }, () => {
+        alert('Password set successfully!');
+        window.close();
+      });
+    } else {
+      chrome.storage.local.get(['password'], (data) => {
+        if (data.password == parts) {
+          alert('Password inputted successfully!');
+          window.close();
+        } else {
+          alert('Incorrect password. Try again.');
+        }
+      });
+    }
   });
+});
 });

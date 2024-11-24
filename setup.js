@@ -30,28 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
     //<shoes>: <color> sneakers, cowboy boots, combat boots, heels, slippers, or blank (if you do not want shoes)\n
     //<accessory>: <color> flower, star, glasses, sunglasses, scarf, gloves, or blank (if you do not want an accessory)\n
     //<color>: red, orange, yellow, green, blue, purple, pink, white, black, or brown\n
-    emotion: null,
-    animalColor: null,
-    animal: null,
-    topColor: null,
-    top: null,
-    bottomColor: null,
-    bottom: null,
-    shoesColor: null,
-    shoes: null,
-    accessoryColor: null,
-    accessory: null,
+    emotion: "blank",
+    animalColor: "blank",
+    animal: "blank",
+    topColor: "blank",
+    top: "blank",
+    bottomColor: "blank",
+    bottom: "blank",
+    shoesColor: "blank",
+    shoes: "blank",
+    accessoryColor: "blank",
+    accessory: "blank",
     // Add other parts here...
   };
   
   const preview = document.getElementById('character-preview');
   const form = document.getElementById('password-form');
-  document.addEventListener('DOMContentLoaded', () => {
-    if (isFirst) {
-      document.getElementById("header").textContent = "Set Password";
-      document.getElementById("submit").textContent = "Set Password";
-    }
-  });
+  if (isFirst) {
+    document.getElementById("header").innerHTML = "Set Password";
+    document.getElementById("submitButton").innerHTML = "Set Password";
+  }
   
   function updateCharacterPreview() {
     console.log(parts); // Check the current state of the parts object
@@ -113,11 +111,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     } else {
       chrome.storage.local.get(['password'], (data) => {
-        if (data.password == parts) {
-          alert('Password inputted successfully!');
+        console.log(data.password)
+        console.log(parts)
+        let isSame = true
+        Object.keys(parts).forEach(part => {
+          const currentValue = parts[part];
+          const passwordValue = data.password[part];
+          // Compare the values
+          if (currentValue != passwordValue) {
+            isSame = false
+          }
+        });
+        if (isSame) {
+          alert('Correct Password!')
           window.close();
         } else {
-          alert('Incorrect password. Try again.');
+          alert('Incorrect Password! Try again!')
         }
       });
     }

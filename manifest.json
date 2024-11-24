@@ -10,9 +10,6 @@
     "host_permissions": [
       "<all_urls>"
     ],
-    "background": {
-      "service_worker": "background.js"
-    },
     "action": {
       "default_popup": "setup.html",
       "default_icon": "Gloves.PNG"

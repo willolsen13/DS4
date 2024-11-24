@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Password</title>
+  <style>
+    #character-preview {
+      position: relative;
+      width: 200px;
+      height: 300px;
+    }
+    .character-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Set Your Character Password</h1>
+  <div id="character-preview"></div>
+  <form id="password-form">
+    <label>Emotion:
+        <select id="emotion">
+          <option value="happy">Happy</option>
+          <option value="neutral">Neutral</option>
+          <option value="sad">Sad</option>
+          <option value="mad">Mad</option>
+          <option value="tired">Tired</option>
+        </select>
+      </label>
+    <label>Color:
+        <select id="animal-color">
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+        </select>
+      </label>
+    <label>Animal:
+      <select id="animal">
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+      </select>
+    </label>
+    <label>Color:
+        <select id="top-color">
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+        </select>
+      </label>
+    <label>Top:
+      <select id="top">
+        <option value="tshirt_red">Red T-Shirt</option>
+        <option value="tshirt_blue">Blue T-Shirt</option>
+      </select>
+    </label>
+    <!-- Repeat for other parts -->
+    <button type="submit">Set Password</button>
+  </form>
+  <script src="setup.js"></script>
+</body>
+</html>

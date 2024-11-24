@@ -9,6 +9,26 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.action === "passwordFieldDetected") {
+        console.log("Message received: Password field detected"); // Debugging
+        chrome.storage.local.get(['isFirstRun'], (data) => {
+            console.log(data.isFirstRun)
+            if (data.isFirstRun) {
+                // Open the setup popup on the first run
+                chrome.action.setPopup({ popup: 'setup.html' });
+    
+                // Mark setup as completed after showing it once
+                chrome.storage.local.set({ isFirstRun: false });
+            } else {
+                // Open the login popup on subsequent runs
+                chrome.action.setPopup({ popup: 'popup.html' });
+            }
+        });
+        chrome.action.openPopup();
+    }
+  });
+
 chrome.action.onClicked.addListener(() => {
     console.log("Clicked")
     chrome.storage.local.get(['isFirstRun'], (data) => {
@@ -21,7 +41,7 @@ chrome.action.onClicked.addListener(() => {
             chrome.storage.local.set({ isFirstRun: false });
         } else {
             // Open the login popup on subsequent runs
-            chrome.action.setPopup({ popup: 'login.html' });
+            chrome.action.setPopup({ popup: 'popup.html' });
         }
     });
 });

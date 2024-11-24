@@ -1,12 +1,6 @@
-// window.addEventListener ("load", myMain, false);
-
-// function myMain (evt) {
-    
-// }
-
 document.addEventListener("DOMContentLoaded", () => {
-    const correctImageId = "black_bear"; // Example: correct image ID
-    const images = document.querySelectorAll("black");
+    const correctImageId = "img3"; // Define the correct option
+    const images = document.querySelectorAll("img");
   
     images.forEach((image) => {
       image.addEventListener("click", () => {
@@ -14,8 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
           alert("Correct! You can proceed.");
           window.close(); // Close the popup
         } else {
-          alert("Incorrect. Try again!");
+          alert("Incorrect. Try again.");
         }
       });
     });
   });
+  

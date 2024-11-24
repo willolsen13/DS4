@@ -5,7 +5,8 @@
     "version": "1.0",
     "permissions": [
       "storage",
-      "activeTab"
+      "activeTab",
+      "scripting"
     ],
     "background": {
       "service_worker": "background.js"
@@ -15,10 +16,11 @@
     ],
     "action": {
       "default_popup": "setup.html",
-      "default_icon": "Gloves.PNG"
+      "default_icon": "demo_image.png"
     },
     "content_scripts": [ {
-      "matches": ["http://*/*"],
-      "js": ["setup.js"]
+      "matches": ["<all_urls>"], 
+      "js": ["setup.js"],
+      "run_at": "document_idle"
     } ]
   }

@@ -23,6 +23,7 @@
   <form id="password-form">
     <label>Emotion:
         <select id="emotion">
+          <option value="blank">None</option>
           <option value="happy">Happy</option>
           <option value="neutral">Neutral</option>
           <option value="sad">Sad</option>
@@ -30,8 +31,9 @@
           <option value="tired">Tired</option>
         </select>
       </label>
-    <label>Color:
-        <select id="animal-color">
+    <label>Animal Color:
+        <select id="animalColor">
+          <option value="blank">None</option>
           <option value="red">Red</option>
           <option value="orange">Orange</option>
           <option value="yellow">Yellow</option>
@@ -46,12 +48,16 @@
       </label>
     <label>Animal:
       <select id="animal">
+        <option value="blank">None</option>
+        <option value="bunny">Bunny</option>
         <option value="cat">Cat</option>
         <option value="dog">Dog</option>
+        <option value="bear">Bear</option>
       </select>
     </label>
-    <label>Color:
-        <select id="top-color">
+    <label>Top Color:
+        <select id="topColor">
+          <option value="blank">None</option>
           <option value="red">Red</option>
           <option value="orange">Orange</option>
           <option value="yellow">Yellow</option>
@@ -66,10 +72,87 @@
       </label>
     <label>Top:
       <select id="top">
-        <option value="tshirt_red">Red T-Shirt</option>
-        <option value="tshirt_blue">Blue T-Shirt</option>
+        <option value="blank">None</option>
+        <option value="tshirt">T-Shirt</option>
+        <option value="sweater">Sweater</option>
+        <option value="hoodie">Hoodie</option>
       </select>
     </label>
+    <label>Bottom Color:
+        <select id="bottomColor">
+          <option value="blank">None</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+        </select>
+      </label>
+    <label>Bottom:
+      <select id="bottom">
+        <option value="blank">None</option>
+        <option value="pants">Pants</option>
+        <option value="shorts">Shorts</option>
+        <option value="skirt">Skirt</option>
+      </select>
+    </label>
+    <label>Shoes Color:
+        <select id="shoesColor">
+          <option value="blank">None</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+        </select>
+      </label>
+    <label>Shoes:
+      <select id="shoes">
+        <option value="blank">None</option>
+        <option value="sneakers">Sneakers</option>
+        <option value="cowboy_boots">Cowboy Boots</option>
+        <option value="combat_boots">Combat Boots</option>
+        <option value="heels">Heels</option>
+        <option value="slippers">Slippers</option>
+      </select>
+    </label>
+    <label>Accessory Color:
+        <select id="accessoryColor">
+          <option value="blank">None</option>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+          <option value="white">White</option>
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+        </select>
+      </label>
+    <label>Accessory:
+      <select id="accessory">
+        <option value="blank">None</option>
+        <option value="flower">Flower</option>
+        <option value="star">Star</option>
+        <option value="glasses">Glasses</option>
+        <option value="sunglasses">Sunglasses</option>
+        <option value="scarf">Scarf</option>
+        <option value="gloves">Gloves</option>
+      </select>
+    </label>
+
     <!-- Repeat for other parts -->
     <button type="submit">Set Password</button>
   </form>

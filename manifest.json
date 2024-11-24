@@ -14,11 +14,11 @@
       "service_worker": "background.js"
     },
     "action": {
-      "default_popup": "popup.html",
+      "default_popup": "setup.html",
       "default_icon": "Gloves.PNG"
     },
     "content_scripts": [ {
       "matches": ["http://*/*"],
-      "js": [".js"]
+      "js": ["setup.js"]
     } ]
   }

@@ -1,5 +1,39 @@
+<!DOCTYPE html>
 <html>
-  <body>
-    <script src="popup.js"></script>
-  </body>
+<head>
+  <title>Character Password</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 10px;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    img:hover {
+      border: 2px solid #0078d4;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select the Correct Image</h1>
+  <div class="image-container">
+    <img src="Black_Bear.PNG" id="black_bear">
+    <img src="Black_Bunny.PNG" id="black_bunny">
+    <img src="Black_Cat.PNG" id="black_cat">
+    <img src="Black_Dog.PNG" id="black_dog">
+  </div>
+  <script src="popup.js"></script>
+</body>
 </html>

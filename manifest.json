@@ -3,17 +3,22 @@
     "name": "Character Password",
     "description": "Use a character creator as an additional level of security for your passwords",
     "version": "1.0",
-    "permissions": ["storage"],
+    "permissions": [
+      "storage",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
       "default_popup": "popup.html",
-      "default_icon": "hello_extensions.png"
+      "default_icon": "Gloves.PNG"
     },
     "content_scripts": [ {
       "matches": ["http://*/*"],
       "js": [".js"]
     } ]
-
   }

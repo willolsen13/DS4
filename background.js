@@ -7,6 +7,12 @@ chrome.runtime.onInstalled.addListener(() => {
     });
 });
 
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.action === "showPopup") {
+      chrome.action.openPopup();
+    }
+});
+
 chrome.action.onClicked.addListener(() => {
     chrome.storage.local.get('isFirstRun', (data) => {
         const popup = data.isFirstRun ? 'setup.html' : 'login.html';

@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isFirst) {
       chrome.storage.local.set({ 'password': parts }, () => {
         alert('Password set successfully!');
-        window.close();
+        window.parent.postMessage('hideIframe', '*');
       });
     } else {
       chrome.storage.local.get(['password'], (data) => {
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         if (isSame) {
           alert('Correct Password!')
-          window.close();
+          window.parent.postMessage('hideIframe', '*');
         } else {
           alert('Incorrect Password! Try again!')
         }
